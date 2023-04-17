@@ -1,18 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
+    <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    Fore more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+  -->
+    <base href="/">
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="description" content="A new Flutter project.">
+
+    <!-- iOS meta tags & icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="portfolio">
+    <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <title>portfolio</title>
+    <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
-    <main>
-        <h1>Welcome to My Website</h1>
-        <p>This is my new website which is hosted on GitHub Pages!</p>
-    </main>
+    <!-- This script installs service_worker.js to provide PWA functionality to
+       application. For more information, see:
+       https://developers.google.com/web/fundamentals/primers/service-workers -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('flutter-first-frame', function () {
+                navigator.serviceWorker.register('flutter_service_worker.js');
+            });
+        }
+    </script>
+
+    <!-- Add this line -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-storage.js"></script>
+    <script src="main.dart.js" type="application/javascript"></script>
+
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyDdTG9LKMnQgCxqcLte98FHdKqb2k6Pkro",
+            authDomain: "portfolio-7c46f.firebaseapp.com",
+            databaseURL: "https://portfolio-7c46f.firebaseio.com",
+            projectId: "portfolio-7c46f",
+            storageBucket: "portfolio-7c46f.appspot.com",
+            messagingSenderId: "513140012494",
+            appId: "1:513140012494:web:6b807c85c7ff983a87679f",
+            measurementId: "G-KDWFKB2L8K",
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <script type="text/javascript">
+        window.flutterWebRender = "html";
+    </script>
+
 </body>
 
 </html>
